@@ -13,6 +13,7 @@
 		678D7ABA1D2C9BB9003F74D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 678D7AB91D2C9BB9003F74D2 /* Assets.xcassets */; };
 		678D7ABD1D2C9BB9003F74D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678D7ABB1D2C9BB9003F74D2 /* LaunchScreen.storyboard */; };
 		67B9E02A1D2C9EC50084A944 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B9E0291D2C9EC50084A944 /* TableViewController.swift */; };
+		67B9E02C1D2DF7BC0084A944 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B9E02B1D2DF7BC0084A944 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		678D7ABC1D2C9BB9003F74D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		678D7ABE1D2C9BB9003F74D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67B9E0291D2C9EC50084A944 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		67B9E02B1D2DF7BC0084A944 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67B9E02C1D2DF7BC0084A944 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 		678D7AA61D2C9BB9003F74D2 = {
 			isa = PBXGroup;
 			children = (
+				67B9E02B1D2DF7BC0084A944 /* CoreLocation.framework */,
 				678D7AB11D2C9BB9003F74D2 /* memorablePlaces */,
 				678D7AB01D2C9BB9003F74D2 /* Products */,
 			);
