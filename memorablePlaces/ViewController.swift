@@ -43,13 +43,53 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             var newCoordinate = map.convertPoint(touchPoint, toCoordinateFromView: self.map)
             
-            var annotation = MKPointAnnotation()
+            var location = CLLocation(latitude: newCoordinate.latitude, longitude: newCoordinate.longitude)
             
-            annotation.coordinate = newCoordinate
+            // retrieve address from reverse geocoder
+            CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+                
+                var title = ""
+                
+                if (error == nil) {
+                
+                    if let p = placemarks?[0] {
+                    
+                        var subThoroughfare:String = ""
+                        var thoroughfare:String = ""
+                        
+                        if p.subThoroughfare != nil {
+                        
+                            subThoroughfare = p.subThoroughfare!
+                        
+                        }
+                        
+                        if p.thoroughfare != nil {
+                            
+                            thoroughfare = p.thoroughfare!
+                            
+                        }
+                        
+                        title = "\(subThoroughfare) \(thoroughfare)"
+                    
+                    }
             
-            annotation.title = "New Annotation"
+                }
             
-            self.map.addAnnotation(annotation)
+                if title == "" {
+                    
+                    title = "Added \(NSDate())"
+                
+                }
+                
+                var annotation = MKPointAnnotation()
+                
+                annotation.coordinate = newCoordinate
+                
+                annotation.title = title
+                
+                self.map.addAnnotation(annotation)
+                
+            })
             
         
         }
@@ -78,6 +118,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+        
+    
 
 
 }
