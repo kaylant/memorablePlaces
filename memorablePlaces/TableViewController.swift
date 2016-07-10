@@ -10,6 +10,8 @@ import UIKit
 
 var places = [Dictionary<String,String>()]
 
+var activePlace = -1
+
 
 class TableViewController: UITableViewController {
     
@@ -24,6 +26,10 @@ class TableViewController: UITableViewController {
             places.append(["name":"Taj Mahal","lat":"27.175277","lon":"78.042128"])
         
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +56,25 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = places[indexPath.row]["name"]
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        
+        activePlace = indexPath.row
+        
+        return indexPath
+    }
+    
+    
+    // allows us to do something when a seque is about to happen
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "newPlace" {
+        
+            activePlace = -1
+        
+        }
+        
     }
  
 
